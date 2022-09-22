@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Square from './Square';
+import Square from '../Square/Square';
 
 
 class Board extends Component {
   constructor(props){
     super(props)
     this.state={
-
     }
   }
 

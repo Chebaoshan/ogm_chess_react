@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './PlayerInfo.css'
+import './style.css'
 
 
 class PlayerInfo extends Component {

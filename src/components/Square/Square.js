@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import './Square.css'
+import './style.css'
 
 
 class Square extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-
-    }
-  }
-
+  state = {}
+  
   getSquareTitle(){
     const {pos, info} = this.props
-    let title = pos
-    if(info){
-        title = info
-    }
-    return title
+    return info ? info : "";
   }
 
   handleClick = () => {
