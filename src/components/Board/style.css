@@ -1,7 +1,4 @@
-.board{
-    display: inline-block
-}
-
 .row{
-    
-}
+    display: flex; 
+    flex: 1;
+} 

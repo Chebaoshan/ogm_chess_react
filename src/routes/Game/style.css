@@ -1,0 +1,17 @@
+.App {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .leftPanel{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+  }
+  
+  .rightPanel{
+    display: inline-block;
+  }
+.button{
+    text-align: center;
+}  

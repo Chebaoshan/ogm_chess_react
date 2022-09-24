@@ -1,44 +1,23 @@
-import React, { Component } from 'react';
-import './style.css'
+import React, { Component } from "react";
+import "./style.css";
 
 class History extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-
-    }
-  }
-
-  handleClick(item){
-    const {onClickHistory} = this.props
-    if(onClickHistory){
-        onClickHistory(item)
-    }
-  }
-
-
-  getHistory(item, index){
+  getHistory(item, index) {
     return (
-        <li key={index}>
-            <button onClick = {this.handleClick.bind(this, item)}>
-            第一步{item.stepCount}：玩家 {item.player} 下的是 {item.pos}
-            </button>
-        </li>
-    )
+      <li key={index}>
+        <button>
+          第{item.stepCount}步：玩家 {item.player} 下的是 {item.position}
+        </button>
+      </li>
+    );
   }
-
-
-
-  render(){
-    const { history } = this.props
-    return(
-        <div className='history'>
-            {history.map((item, index) => this.getHistory(item, index))}
-
-        </div>
-      )
+  render() {
+    return (
+      <div className="history">
+        {this.props.history.map((item, index) => this.getHistory(item, index))}
+      </div>
+    );
   }
-  
 }
 
 export default History;

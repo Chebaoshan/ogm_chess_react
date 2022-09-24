@@ -1,25 +1,12 @@
-import React, { Component } from 'react';
-import './style.css'
-
+import React, { Component } from "react";
 
 class PlayerInfo extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-
-    }
+  render() {
+    return <div style={style}>PLAYERINFO : {this.props.curPlayer}</div>;
   }
-
-  render(){
-    const { curPlayer } = this.props
-    return(
-        <div className='playerInfo'>
-            PLAYERINFO : {curPlayer}
-
-        </div>
-      )
-  }
-  
 }
-
+const style = {
+  fontSize: "20px",
+  fontWeight: "bolder",
+};
 export default PlayerInfo;
