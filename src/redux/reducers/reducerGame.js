@@ -1,4 +1,4 @@
-import { UPDATE_GAME } from "../actions/actionGame";
+import { RESET_DATA, UPDATE_GAME } from "../actions/actionGame";
 //生产者
 export const reducerGame = (previousState = initData, action) => {
   let nextState = JSON.parse(JSON.stringify(previousState));
@@ -20,6 +20,8 @@ export const reducerGame = (previousState = initData, action) => {
         stepCount: nextState.stepCount + 1,
         squares: calcSquare(newHistory, nextState.stepCount + 1),
       });
+    case RESET_DATA:
+      return initData;
     default:
       return previousState;
   }
