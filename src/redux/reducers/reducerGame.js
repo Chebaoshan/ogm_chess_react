@@ -1,11 +1,12 @@
-import { RESET_DATA, UPDATE_GAME } from "../actions/actionGame";
+import { RESET_DATA, UPDATE_GAME } from "../actions/actions";
+import { winner } from "../../utils/winner";
 //生产者
 export const reducerGame = (previousState = initData, action) => {
   let nextState = JSON.parse(JSON.stringify(previousState));
   switch (action.type) {
     case UPDATE_GAME:
       if (action.data.info !== null) {
-        break;
+        return previousState;
       }
       const newHistory = [
         ...nextState.history,
@@ -19,6 +20,7 @@ export const reducerGame = (previousState = initData, action) => {
         history: newHistory,
         stepCount: nextState.stepCount + 1,
         squares: calcSquare(newHistory, nextState.stepCount + 1),
+        over: winner(newHistory),
       });
     case RESET_DATA:
       return initData;
@@ -33,6 +35,11 @@ const initData = {
   stepCount: 0,
   //历史记录
   history: [],
+  //胜负已出
+  over: {
+    result: false,
+    winner: "",
+  },
 };
 const calcSquare = (history, stepCount) => {
   let newSquare = new Array(9).fill(null);

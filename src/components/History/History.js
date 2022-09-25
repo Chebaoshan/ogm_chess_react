@@ -5,9 +5,9 @@ class History extends Component {
   getHistory(item, index) {
     return (
       <li key={index}>
-        <button>
-          第{item.stepCount}步：玩家 {item.player} 下的是 {item.position}
-        </button>
+        <label>
+          第{item.stepCount}步：下的是{item.player}位置是{item.position}
+        </label>
       </li>
     );
   }

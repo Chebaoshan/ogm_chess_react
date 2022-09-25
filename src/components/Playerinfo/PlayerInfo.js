@@ -1,8 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 class PlayerInfo extends Component {
   render() {
-    return <div style={style}>PLAYERINFO : {this.props.curPlayer}</div>;
+    return (
+      <Fragment>
+        <div style={style}>即将下的棋子是:{this.props.curPlayer}</div>
+        <div>你好！{this.props.username}</div>
+      </Fragment>
+    );
   }
 }
 const style = {

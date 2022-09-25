@@ -8,9 +8,15 @@ import {
   UPDATE_GAME,
   getAction,
   RESET_DATA,
-} from "../../redux/actions/actionGame";
+} from "../../redux/actions/actions";
 import { connect } from "react-redux";
 class Game extends Component {
+  componentDidUpdate() {
+    if (this.props.over.result) {
+      alert("胜利者是：" + this.props.over.winner);
+      this.props.resetStore();
+    }
+  }
   render() {
     return (
       <Fragment>
@@ -22,7 +28,10 @@ class Game extends Component {
             />
           </div>
           <div className="rightPanel">
-            <PlayerInfo curPlayer={this.props.currentPlayer} />
+            <PlayerInfo
+              curPlayer={this.props.currentPlayer}
+              username={this.props.username}
+            />
             <History history={this.props.history} />
           </div>
         </div>
@@ -47,6 +56,8 @@ const mapStateToProps = (state) => {
     stepCount: state.reducerGame.stepCount,
     history: state.reducerGame.history,
     currentPlayer: state.reducerGame.stepCount % 2 === 0 ? "X" : "O",
+    over: state.reducerGame.over,
+    username: state.reducerLogin.username,
   };
 };
 const mapDispatchToProps = (dispatch) => {
