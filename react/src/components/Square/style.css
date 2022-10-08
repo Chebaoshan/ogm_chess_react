@@ -1,0 +1,14 @@
+.square{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: solid 2px black;
+    font-size: 50px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.square:hover{
+    color:red;
+    border-color: red;
+}
